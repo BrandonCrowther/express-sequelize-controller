@@ -1,5 +1,4 @@
 const express = require("express")
-const { Model } = require('sequelize');
 
 class Controller{
     /**
