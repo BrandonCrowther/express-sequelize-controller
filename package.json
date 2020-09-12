@@ -1,0 +1,26 @@
+{
+  "name": "express-sequelize-controller",
+  "version": "0.1.0",
+  "description": "Two helper classes that generate a basic controller spec for your express-sequelize application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonCrowther/express-sequelize-controller.git"
+  },
+  "keywords": [
+    "express",
+    "sequelize",
+    "generator",
+    "controller",
+    "helper"
+  ],
+  "author": "Brandon Crowther",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BrandonCrowther/express-sequelize-controller/issues"
+  },
+  "homepage": "https://github.com/BrandonCrowther/express-sequelize-controller#readme"
+}
