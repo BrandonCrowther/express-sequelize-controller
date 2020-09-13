@@ -1,5 +1,8 @@
 # express-sequelize-controller
-Three helper classes that generate a basic crud controller for your express+sequelize application.
+Three helper classes that generate a basic crud controller for your express+sequelize application. An example application is available here <a href="https://github.com/BrandonCrowther/express-sequelize-controller-example">express-sequelize-controller-example</a>.
+
+<br>
+<br>
 
 ## Installation:
 `npm install express-sequelize-controller`
@@ -7,23 +10,15 @@ Three helper classes that generate a basic crud controller for your express+sequ
 
 Then, in your project:
 ```javascript
-const {APIController, HTMLController, Controller} = require('express-sequelize-controller')
+const {APIController, HTMLController, Controller, mountController} = require('express-sequelize-controller')
+
+app.mountController = mountController
 ```
 
-<br>
 <br>
 
 ## How To Use:
 ```javascript
-const controller = new APIController(User)
-app.use(controller.getBase(), controller.getRouter())
-```
-or
-
-```javascript
-app.mountController = function(controller){
-    this.use(controller.getBase(), controller.getRouter())
-}
 app.mountController(new APIController(User))
 ```
 <br>
