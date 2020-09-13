@@ -10,26 +10,13 @@ class APIController extends Controller{
      */
 
     /**
-     * Constructs the object to generate the express router from
+     * Constructs the object to generate the express router from.
      * Pass in express callback functions (req, res, next) that
      * you would like to stage before executing anything in this
      * controller.
-     * 
-     * Afterwards, mount your controller like so:
-     * @example
-     *  app.use(controller.getBase(), controller.getRouter())
-     * 
-     * or
-     * @example
-     *  app.mountController = function(controller){
-     *      this.use(controller.getBase(), controller.getRouter())
-     *  }
-     *  app.mountController(new APIController(User))
-     * 
-     * 
      * __
      * @param {Model} objectModel 
-     * @param {expressFunction[]} expressFunction
+     * @param {expressFunction[]} expressFunctions
      * @param {string} prefix = "/api"
      */
     constructor(objectModel, beforeActions = [], prefix = "/api"){
