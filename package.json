@@ -1,6 +1,6 @@
 {
   "name": "express-sequelize-controller",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Two helper classes that generate a basic controller spec for your express-sequelize application",
   "main": "index.js",
   "scripts": {

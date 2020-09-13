@@ -1,5 +1,5 @@
 # express-sequelize-controller
-Three helper classes that generate a basic controller spec for your express-sequelize application.
+Three helper classes that generate a basic crud controller for your express+sequelize application.
 
 ## Installation:
 `npm install express-sequelize-controller`
@@ -18,7 +18,7 @@ const {APIController, HTMLController, Controller} = require('express-sequelize-c
 const controller = new APIController(User)
 app.use(controller.getBase(), controller.getRouter())
 ```
-or:
+or
 
 ```javascript
 app.mountController = function(controller){
@@ -26,21 +26,30 @@ app.mountController = function(controller){
 }
 app.mountController(new APIController(User))
 ```
+<br>
+
+The above code will generate a CRUD controller for your `User` model. Refer to the routes below for the spec of the generated routes.
 
 <br>
 
-Note: HTMLController expects the following view files for each model you pass it: 
+<strong>Note:</strong> `HTMLController` expects the following view files for each model you pass it: 
 - `/${tableNameLowercase}/view` - the controller will attempt to pass it a variable `model` that holds the Sequelize model
 - `/${tableNameLowercase}/index` - the controller will attempt to pass it a variable `models` that holds an array of Sequelize models.
-- `/${tableNameLowercase}/form` - the controller will attempt to pass it a variable `model` that holds the Sequelize model. Used for create and edit.
+- `/${tableNameLowercase}/form` - the controller will attempt to pass it a variable `model` that holds the Sequelize model. Used for create and edit. Pass it a new, unpopulated model for create.
 
 
 <br>
 <br>
 
- ## Default controller specs:
+## Routes:
+The Route spec is defined as a dictionary of dictionaries. The outer dictionary is the path - defined according to the express routing spec, and the inner dictionary contains the method type as a key and function for that method type as a value.
+<br>
 
- ### APIController:
+For example: In the APIController example below, calling GET user/1 would match to the path `:id(\\d+)` and map to the function `getById` 
+
+<br>
+
+### APIController:
  ```javascript
     return {
         "": {
@@ -77,9 +86,13 @@ Note: HTMLController expects the following view files for each model you pass it
     }
 ```
 
+
+
 <br>
 
- ### HTMLController:
+
+
+### HTMLController:
  ```javascript
     return {
         "": {
@@ -110,6 +123,12 @@ Note: HTMLController expects the following view files for each model you pass it
 ```
 <br>
 
+## Adding Your Own Routes
+Adding your own routes is fairly easy. Simply extend the class and modify the `actionMap` function to accommodate your needs. See the way APIController or HTMLController extend Controller in the source code for an example.
+
+<br>
+<br>
+
 
 ## TODO:
 Obviously a lot of things can be cleaned up here. As of right now I have the following in mind:
@@ -119,3 +138,5 @@ Obviously a lot of things can be cleaned up here. As of right now I have the fol
 - Improve readme :)
 - Typescriptify
 - Support generating relational queries
+- Generalize database interface to allow other database libraries to be used
+- Make it easier to add to actionMap
