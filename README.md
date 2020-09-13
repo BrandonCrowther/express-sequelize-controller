@@ -1,7 +1,17 @@
 # express-sequelize-controller
-Two helper classes that generate a basic controller spec for your express-sequelize application.
+Three helper classes that generate a basic controller spec for your express-sequelize application.
 
+## Installation:
+`npm install express-sequelize-controller`
+<br>
 
+Then, in your project:
+```javascript
+const {APIController, HTMLController, Controller} = require('express-sequelize-controller')
+```
+
+<br>
+<br>
 
 ## How To Use:
 ```javascript
@@ -17,12 +27,16 @@ app.mountController = function(controller){
 app.mountController(new APIController(User))
 ```
 
+<br>
+
 Note: HTMLController expects the following view files for each model you pass it: 
 - `/${tableNameLowercase}/view` - the controller will attempt to pass it a variable `model` that holds the Sequelize model
 - `/${tableNameLowercase}/index` - the controller will attempt to pass it a variable `models` that holds an array of Sequelize models.
 - `/${tableNameLowercase}/form` - the controller will attempt to pass it a variable `model` that holds the Sequelize model. Used for create and edit.
 
 
+<br>
+<br>
 
  ## Default controller specs:
 
@@ -63,6 +77,8 @@ Note: HTMLController expects the following view files for each model you pass it
     }
 ```
 
+<br>
+
  ### HTMLController:
  ```javascript
     return {
@@ -92,6 +108,7 @@ Note: HTMLController expects the following view files for each model you pass it
         }
     }
 ```
+<br>
 
 
 ## TODO:
