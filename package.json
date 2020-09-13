@@ -1,8 +1,11 @@
 {
   "name": "express-sequelize-controller",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Three helper classes that generate a basic controller spec for your express-sequelize application",
   "main": "index.js",
+  "engines": {
+    "node": ">= 12.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
