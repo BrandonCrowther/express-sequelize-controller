@@ -42,10 +42,10 @@ The above code will generate a CRUD controller for your `User` model. Refer to t
 <br>
 
 ## Routes:
-The Route spec is defined as a dictionary of dictionaries. The outer dictionary is the path - defined according to the express routing spec, and the inner dictionary contains the method type as a key and function for that method type as a value.
+The Route spec is defined as a dictionary of dictionaries. The outer dictionary has the path as a key - defined according to the express routing spec, and the inner dictionary contains the method type as a key and function for that method type as a value.
 <br>
 
-For example: In the APIController example below, calling GET user/1 would match to the path `:id(\\d+)` and map to the function `getById` 
+For example: In the `APIController` example below, calling `GET user/1` would match to the path `:id(\\d+)` and map to the function `getById`. Similarly `DELETE user/3` would match to path `delete/:id(\\d+)` and map to the function `this.delete` (from the key `delete`)
 
 <br>
 
@@ -124,7 +124,7 @@ For example: In the APIController example below, calling GET user/1 would match 
 <br>
 
 ## Adding Your Own Routes
-Adding your own routes is fairly easy. Simply extend the class and modify the `actionMap` function to accommodate your needs. See the way APIController or HTMLController extend Controller in the source code for an example.
+Adding your own routes is fairly easy. Simply extend the class and modify the `actionMap` function to accommodate your needs. See the way `APIController` or `HTMLController` extend `Controller` in the source code for an example.
 
 <br>
 <br>
@@ -133,10 +133,9 @@ Adding your own routes is fairly easy. Simply extend the class and modify the `a
 ## TODO:
 Obviously a lot of things can be cleaned up here. As of right now I have the following in mind:
 - Make better guesses at things like the folder where views are stored.
-- Get rid of the Sequelize dependency. Probably have to pass the router in as a parameter, unfortunately.
-- Improve jsdoc
-- Improve readme :)
+- Get rid of the Express dependency. Probably have to pass the router in as a parameter, unfortunately.
 - Typescriptify
-- Support generating relational queries
+- Automatic support for relational queries (ie: `user/1/posts`)
 - Generalize database interface to allow other database libraries to be used
 - Make it easier to add to actionMap
+- Make a minimal demo app

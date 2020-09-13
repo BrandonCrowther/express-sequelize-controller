@@ -142,11 +142,11 @@ class APIController extends Controller{
      */
     actionMap(){
         var map = super.actionMap()
-        map["delete"] = { 
+        map.delete = { 
             post: this.delete ,
             delete: this.delete 
         },
-        map["update"] ={ 
+        map.update = { 
             put: this.update,
             post: this.update 
         }
